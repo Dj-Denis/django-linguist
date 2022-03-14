@@ -1,3 +1,5 @@
+import sys
+
 from django.core.exceptions import ImproperlyConfigured
 from django.db import models
 from django.db.models.fields import NOT_PROVIDED
@@ -131,6 +133,11 @@ class ModelMeta(models.base.ModelBase):
         validate_meta(attrs["Meta"].linguist)
         meta = attrs["Meta"].linguist
         delattr(attrs["Meta"], "linguist")
+
+        migration = 'makemigrations' in sys.argv
+
+        if migration:
+            return super(ModelMeta, cls).__new__(cls, name, bases, attrs)
 
         all_fields = dict(
             (attr_name, attr)

@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "object_id",
-                    models.IntegerField(
+                    models.TextField(
                         help_text="The object ID of this translation",
                         verbose_name="The object ID",
                         db_index=True,

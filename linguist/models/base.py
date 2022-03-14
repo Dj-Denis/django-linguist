@@ -113,7 +113,7 @@ class Translation(models.Model):
         help_text=_("The registered model identifier."),
     )
 
-    object_id = models.IntegerField(
+    object_id = models.TextField(
         verbose_name=_("The object ID"),
         db_index=True,
         help_text=_("The object ID of this translation"),

@@ -284,7 +284,7 @@ def get_grouped_translations(instances, **kwargs):
     instances_ids = []
 
     for instance in instances:
-        instances_ids.append(instance.pk)
+        instances_ids.append(str(instance.pk))
 
         if instance._meta.model != model:
             raise Exception(
